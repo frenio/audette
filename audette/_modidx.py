@@ -5,4 +5,11 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://frenio.github.io',
                 'git_url': 'https://github.com/frenio/audette',
                 'lib_path': 'audette'},
-  'syms': {'audette.core': {'audette.core.foo': ('core.html#foo', 'audette/core.py')}}}
+  'syms': { 'audette.core': { 'audette.core.Chat': ('core.html#chat', 'audette/core.py'),
+                              'audette.core.Chat.__call__': ('core.html#chat.__call__', 'audette/core.py'),
+                              'audette.core.Chat.__init__': ('core.html#chat.__init__', 'audette/core.py'),
+                              'audette.core.Chat._show': ('core.html#chat._show', 'audette/core.py'),
+                              'audette.core.Chat.forget_last': ('core.html#chat.forget_last', 'audette/core.py'),
+                              'audette.core.Chat.save_conversation': ('core.html#chat.save_conversation', 'audette/core.py'),
+                              'audette.core.Chat.usage_summary': ('core.html#chat.usage_summary', 'audette/core.py'),
+                              'audette.core.show': ('core.html#show', 'audette/core.py')}}}
