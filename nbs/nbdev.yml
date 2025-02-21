@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "audette"
+  site-url: "https://frenio.github.io/audette"
+  description: "A python package to chat with all OpenRouter models. Inspired by Answer.AI's Claudette."
+  repo-branch: main
+  repo-url: "https://github.com/frenio/audette"
