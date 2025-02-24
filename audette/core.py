@@ -5,7 +5,7 @@
 # %% auto 0
 __all__ = ['show', 'Chat', 'print_conversation']
 
-# %% ../nbs/00_core.ipynb 4
+# %% ../nbs/00_core.ipynb 3
 import os
 import requests
 import json
@@ -14,10 +14,10 @@ from IPython.display import Markdown, display_markdown
 from fastcore.basics import patch
 from dotenv import load_dotenv
 
-# %% ../nbs/00_core.ipynb 7
+# %% ../nbs/00_core.ipynb 6
 def show(string): return Markdown(string)
 
-# %% ../nbs/00_core.ipynb 8
+# %% ../nbs/00_core.ipynb 7
 class Chat():
     def __init__(self, model):
         self.model = model
@@ -55,7 +55,7 @@ class Chat():
         self.context = self.context[:-1]
         return self.context
 
-# %% ../nbs/00_core.ipynb 9
+# %% ../nbs/00_core.ipynb 8
 @patch
 def save_conversation(self:Chat, generate_title=True):
     conv = json.dumps(self.context, ensure_ascii=False, indent=2)
@@ -76,7 +76,7 @@ def save_conversation(self:Chat, generate_title=True):
         f.write(conv)
     return "Saving complete!"
 
-# %% ../nbs/00_core.ipynb 20
+# %% ../nbs/00_core.ipynb 19
 @patch
 def print_conversation(self:Chat, user="Me"):
     assistant = self.model.split("/")[1].split("-")[0].capitalize()
@@ -88,7 +88,7 @@ def print_conversation(self:Chat, user="Me"):
         elif i['role'] == 'assistant':
             display_markdown(self._show(f"**{assistant}**: {i['content']}"))
 
-# %% ../nbs/00_core.ipynb 22
+# %% ../nbs/00_core.ipynb 21
 def print_conversation(conversation, user="User", assistant="Assistant"):
     for i in conversation:
         if i['role'] == 'user':
