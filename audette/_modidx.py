@@ -10,6 +10,8 @@ d = { 'settings': { 'branch': 'main',
                               'audette.core.Chat.__init__': ('core.html#chat.__init__', 'audette/core.py'),
                               'audette.core.Chat._show': ('core.html#chat._show', 'audette/core.py'),
                               'audette.core.Chat.forget_last': ('core.html#chat.forget_last', 'audette/core.py'),
+                              'audette.core.Chat.print_conversation': ('core.html#chat.print_conversation', 'audette/core.py'),
                               'audette.core.Chat.save_conversation': ('core.html#chat.save_conversation', 'audette/core.py'),
                               'audette.core.Chat.usage_summary': ('core.html#chat.usage_summary', 'audette/core.py'),
+                              'audette.core.print_conversation': ('core.html#print_conversation', 'audette/core.py'),
                               'audette.core.show': ('core.html#show', 'audette/core.py')}}}
