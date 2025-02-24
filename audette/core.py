@@ -27,7 +27,7 @@ class Chat():
         self.time = None
         self.history = []
         self.chatsdir = ''
-        self.title = f'conversation-with-{self.model.split("/")[1].replace(":", "-")}'
+        self.title = f"conversation-with-{self.model.split('/')[1].replace(':', '-')}"
         
     def __call__(self, prompt):
         self.context.append({"role": "user", "content": prompt})
@@ -80,7 +80,8 @@ def save_conversation(self:Chat, generate_title=True):
 @patch
 def print_conversation(self:Chat, user="Me"):
     assistant = self.model.split("/")[1].split("-")[0].capitalize()
-    display_markdown(self._show(f"**{(" ".join(word.capitalize() for word in self.title.split("-")))}**"))
+    title = " ".join(self.title.split('-')).capitalize()
+    display_markdown(self._show(f"**{title}**"))
     for i in self.context:
         if i['role'] == 'user':
             display_markdown(self._show(f"**{user}**: {i['content']}"))
