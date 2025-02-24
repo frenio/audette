@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "audette",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "audette"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "audette",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall audette in Development mode\n# make sure audette package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to audette\n$ nbdev_prepare",
+    "crumbs": [
+      "audette"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "audette",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/frenio/audette.git\nor from conda\n$ conda install -c frenio audette\nor from pypi\n$ pip install audette\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "audette"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "audette",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
+    "crumbs": [
+      "audette"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "The following line loads the OpenRouter api key from the .env file which is hidden from you. To use this notebook, either create a .env file containing OPENROUTER_API_KEY=your_api_key or uncomment the os.environ assignment below and set it to your personal api key.\n\nload_dotenv(\"../.env\")\n# os.environ['OPENROUTER_API_KEY'] = &lt;your OpenRouter api key&gt;\n\nTrue\n\n\n\nsource\n\nshow\n\n show (string)\n\n\nsource\n\n\nChat\n\n Chat (model)\n\nInitialize self. See help(type(self)) for accurate signature.\n\nsource\n\n\nChat.save_conversation\n\n Chat.save_conversation (generate_title=True)\n\n\nmodel = \"google/gemini-2.0-pro-exp-02-05:free\"\nchat = Chat(model)\n\n\nchat(\"Give me the canonical SMILES string of ibuprofen. Output only the SMILES string and nothing else.\")\n\nCC(C)Cc1ccc(C(C)C(=O)O)cc1\n\n\n\nfrom rdkit import Chem\nfrom rdkit.Chem import Draw\n\n\nnames = [\"ibuprofen\"]\nsmiles = [chat.context[-1]['content']]\n\nDraw.MolsToGridImage(mols=[Chem.MolFromSmiles(x) for x in smiles], \n                     molsPerRow=5, subImgSize=(400,300), legends=names)\n\n\n\n\n\n\n\n\n\nchat.save_conversation(generate_title=False)\n\n'Saving complete!'\n\n\n\nchat.save_conversation()\n\n'Saving complete!'\n\n\n\nchat.title\n\n'ibuprofen-smiles-string-generation'\n\n\n\nchat.usage\n\n[{'prompt_tokens': 21, 'completion_tokens': 20, 'total_tokens': 41},\n {'prompt_tokens': 73, 'completion_tokens': 9, 'total_tokens': 82}]\n\n\n\nchat.usage_summary()\n\nInput tokens: 94\nOutput tokens: 29\nTotal tokens: 123\n\n\n\nchat.date\n\n1740427285\n\n\n\nsource\n\n\nChat.print_conversation\n\n Chat.print_conversation (user='Me')\n\n\nchat.print_conversation()\n\nIbuprofen smiles string generation\n\n\nMe: Give me the canonical SMILES string of ibuprofen. Output only the SMILES string and nothing else.\n\n\nGemini: CC(C)Cc1ccc(C(C)C(=O)O)cc1\n\n\n\nsource\n\n\nprint_conversation\n\n print_conversation (conversation, user='User', assistant='Assistant')\n\n\nfile_path = chat.chatsdir + chat.time + \"-\" + chat.title + \".txt\"\nassistant = file_path.split(\"/\")[-2].split(\"-\")[0].capitalize()\n\nwith open(file_path, 'r') as f:\n    conv = f.read()\n    \nprint_conversation(json.loads(conv), user=\"Me\", assistant=assistant)\n\nMe: Give me the canonical SMILES string of ibuprofen. Output only the SMILES string and nothing else.\n\n\nGemini: CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+    "crumbs": [
+      "core"
+    ]
+  }
+]
